@@ -1,10 +1,13 @@
+"use client"
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { ArrowLeft, Bot, Send, User } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card, CardContent } from "@/components/ui/card";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Send, Bot, User, ArrowLeft } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+
+
 
 interface Message {
   id: string;
@@ -24,7 +27,7 @@ const Chatbot = () => {
   ]);
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -63,7 +66,7 @@ const Chatbot = () => {
             <Button 
               variant="ghost" 
               size="sm" 
-              onClick={() => navigate('/')}
+              onClick={() => router.replace('/')}
               className="flex items-center space-x-2"
             >
               <ArrowLeft className="h-4 w-4" />

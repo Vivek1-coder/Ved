@@ -1,22 +1,25 @@
+"use client"
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MessageCircle, Zap, Shield, Clock, Brain, Users } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+
 import { LoginDialog } from "@/components/LoginDialog";
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { FeaturesSection } from "@/components/FeaturesSection";
 import { Footer } from "@/components/Footer";
+import { useRouter } from 'next/navigation';
+
 
 const Index = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const handleLogin = () => {
     // After successful login, navigate to chatbot
-    navigate('/chatbot');
+    router.replace('/chatbot');
   };
 
   return (
